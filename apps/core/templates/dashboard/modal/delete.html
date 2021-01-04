@@ -1,0 +1,12 @@
+<form method="post" action="{% url 'file-delete' obj.id %}" class="js-post-delete-form">{% csrf_token %}
+    <div class="modal-header">
+        <h4 class="modal-title float-left">Deletar</h4>
+    </div>
+    <div class="modal-body">
+        <p class="lead">Tem certeza que deseja deletar <strong>{{ obj.title }}</strong>?</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <button type="submit" class="btn btn-danger">Deletar</button>
+    </div>
+</form>

@@ -1,0 +1,53 @@
+{% extends 'core/base.html' %}
+{% load staticfiles %}
+
+{% block css %}
+{% endblock %}
+
+{% block menu %}
+{% include 'dashboard/includes/menu.html' %}
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card card-table">
+            <div class="card-header">Arquivos
+                <div class="tools dropdown">
+                    <div class="icon">
+                        <button type="button" class="btn btn-primary float-right js-create-post" data-url="{% url 'file-create' %}">Novo</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <table id="table1" class="table table-striped table-hover table-fw-widget">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Diretório</th>
+                            <th>Sub Diretório</th>
+                            <th>Arquivo</th>
+                            <th>Opções</th>
+                        </tr>
+                    </thead>
+                    <tbody  id="post-table"> 
+                        {% include 'dashboard/modal/list.html' %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-post">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script src="{% static 'custom/js/modal.js' %}"></script>
+{% endblock %}
